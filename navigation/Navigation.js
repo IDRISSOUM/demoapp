@@ -12,6 +12,7 @@ export function AppNavigator() {
           headerMode: 'screen',
           headerTintColor: 'white',
           headerStyle: { backgroundColor: 'tomato' },
+          headerTitleAlign: 'center'
         }}
       >
       <Stack.Screen
@@ -25,7 +26,8 @@ export function AppNavigator() {
         name="Login"
         component={Login}
         options={{
-          title: 'Demo',
+          title: 'Register',
+          headerTitleAlign: 'center'
         }}
       />
     </Stack.Navigator>

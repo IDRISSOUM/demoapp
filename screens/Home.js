@@ -1,71 +1,119 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet, TouchableOpacity, Dimensions} from 'react-native';
-export const { width, height} = Dimensions.get('window');
+import {SafeAreaView, View, Text, TextInput, Image, ScrollView, TouchableOpacity} from 'react-native';
+// import Icon from 'react-native-vector-icons/MaterialIcons';
+import COLORS from '../consts/color';
+import STYLES from '../styles';
 
-export default function Home ({navigation}){
+const Home = ({navigation}) => {
+  return (
+    <SafeAreaView
+      style={{paddingHorizontal: 20, flex: 1, backgroundColor: COLORS.white}}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={{flexDirection: 'row', marginTop: 40}}>
+          <Text style={{fontWeight: 'bold', fontSize: 22, color: COLORS.dark}}>
+            FOX
+          </Text>
+          <Text
+            style={{fontWeight: 'bold', fontSize: 22, color: COLORS.secondary}}>
+            HUB
+          </Text>
+        </View>
 
-    return (
-        <View style={styles.container}>
-            {/* <View style={styles.top}><TouchableOpacity style={{flexDirection: 'row'}}>Chronometre</TouchableOpacity></View> */}
-            <View style={styles.middle}>
-                <Text style={styles.text1}>
-                    welcome to a demo application
-                </Text>
+        <View style={{marginTop: 70}}>
+          <Text style={{fontSize: 27, fontWeight: 'bold', color: COLORS.dark}}>
+            Welcome Back,
+          </Text>
+          <Text style={{fontSize: 19, fontWeight: 'bold', color: COLORS.light}}>
+            Sign in to continue
+          </Text>
+        </View>
+
+        <View style={{marginTop: 20}}>
+          <View style={STYLES.inputContainer}>
+            {/* <Icon
+              name="mail-outline"
+              color={COLORS.light}
+              size={20}
+              style={STYLES.inputIcon}
+            /> */}
+            <TextInput placeholder="Email" style={STYLES.input} />
+          </View>
+          <View style={STYLES.inputContainer}>
+            {/* <Icon
+              name="lock-outline"
+              color={COLORS.light}
+              size={20}
+              style={STYLES.inputIcon}
+            /> */}
+            <TextInput
+              placeholder="Password"
+              style={STYLES.input}
+              secureTextEntry
+            />
+          </View>
+          <View style={STYLES.btnPrimary}>
+            <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 18}}>
+              Sign In
+            </Text>
+          </View>
+          <View
+            style={{
+              marginVertical: 20,
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <View style={STYLES.line}></View>
+            <Text style={{marginHorizontal: 5, fontWeight: 'bold'}}>OR</Text>
+            <View style={STYLES.line}></View>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}>
+            <View style={STYLES.btnSecondary}>
+              <Text style={{fontWeight: 'bold', fontSize: 16}}>
+                Sign in with
+              </Text>
+              <Image
+                style={STYLES.btnImage}
+                source={require('../assets/facebook.png')}
+              />
             </View>
-            <View style={[styles.bottom, {justifyContent: 'center', flexDirection: 'row'}]}>
-                <TouchableOpacity onPress={() => navigation.navigate('Login')} style={{justifyContent: 'center', }}>
-                    <Text style={[styles.text, {fontSize: 25,}]}>
-                        Let's Go
-                    </Text>
-                </TouchableOpacity>
+            <View style={{width: 10}}></View>
+            <View style={STYLES.btnSecondary}>
+              <Text style={{fontWeight: 'bold', fontSize: 16}}>
+                Sign in with
+              </Text>
+              <Image
+                style={STYLES.btnImage}
+                source={require('../assets/google.png')}
+              />
             </View>
-      </View>
-    );
-}
+          </View>
+        </View>
 
-const styles = StyleSheet.create({
-    container: {
-    flex: 1,
-    justifyContent: "space-between",
-    backgroundColor: "#fff",
-    width: width,  
-    height: height,
-    },
-    top: {
-    flex: 0.5,
-    backgroundColor: "white",
-    },
-    middle: {
-    flex: 5,
-    backgroundColor: "#FFFFFF",
-    justifyContent: "center",
-    alignItems: "center"
-    },
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'flex-end',
+            justifyContent: 'center',
+            marginTop: 40,
+            marginBottom: 20,
+          }}>
+          <Text style={{color: COLORS.light, fontWeight: 'bold'}}>
+            Don`t have an account ?
+          </Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text style={{color: COLORS.pink, fontWeight: 'bold'}}>
+              Sign up
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
-    bottom: {
-    flex: 2,
-    backgroundColor: "pink",
-    },
-
-    text: {
-    fontSize: 20,
-    fontWeight: "bold",
-    fontFamily: 'italic',
-    color:"#00BCD4",
-    fontSize: 25,
-    borderRadius:30,
-    padding: '3%',
-    backgroundColor: '#fff',
-    shadowOffset: {
-        width: 10,
-        height: 10,
-    },
-    shadowOpacity: 0.10,
-    shadowRadius: 10.32,
-    
-    elevation: 5,
-    },
-    text1: {
-        fontSize: 20,
-    }
-});
+export default Home;
