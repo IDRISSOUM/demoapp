@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, View, Text, TextInput, Image, ScrollView, TouchableOpacity} from 'react-native';
-// import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../consts/color';
 import STYLES from '../styles';
 
@@ -11,11 +11,11 @@ const Home = ({navigation}) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{flexDirection: 'row', marginTop: 40}}>
           <Text style={{fontWeight: 'bold', fontSize: 22, color: COLORS.dark}}>
-            FOX
+            GOOD
           </Text>
           <Text
             style={{fontWeight: 'bold', fontSize: 22, color: COLORS.secondary}}>
-            HUB
+            JOB
           </Text>
         </View>
 
@@ -30,21 +30,21 @@ const Home = ({navigation}) => {
 
         <View style={{marginTop: 20}}>
           <View style={STYLES.inputContainer}>
-            {/* <Icon
+            <Icon
               name="mail-outline"
               color={COLORS.light}
               size={20}
               style={STYLES.inputIcon}
-            /> */}
+            />
             <TextInput placeholder="Email" style={STYLES.input} />
           </View>
           <View style={STYLES.inputContainer}>
-            {/* <Icon
+            <Icon
               name="lock-outline"
               color={COLORS.light}
               size={20}
               style={STYLES.inputIcon}
-            /> */}
+            />
             <TextInput
               placeholder="Password"
               style={STYLES.input}

@@ -11,7 +11,7 @@ export function AppNavigator() {
         screenOptions={{
           headerMode: 'screen',
           headerTintColor: 'white',
-          headerStyle: { backgroundColor: 'tomato' },
+          headerStyle: { backgroundColor: '#47E3FF' },
           headerTitleAlign: 'center'
         }}
       >
